@@ -1,29 +1,20 @@
-# vuex-party
+# vuex-party-example
+
+An example of a party service with a vuex+vuejs front end. Uses [https://github.com/timetocode/party], which contains the documentation for the api.
+
+The 'ready' and 'cancel' features are just aesthetic -- the party leader may choose to start at any time.
+
+![ee](./public/screenshot.PNG "okay")
 
 ## Project setup
 ```
-npm install
+npm install && npm start
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
+### Compiles and minifies for production (just the VueJS part)
 ```
 npm run build
 ```
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Server
+The server side is located in /service/app.js

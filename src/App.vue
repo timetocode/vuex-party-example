@@ -1,24 +1,44 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button v-if="!partyId" @click="createOrJoin()">Create Party</button>
+    <Party v-if='partyId'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Party from "./components/Party.vue";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Party
+  },
+  data() {
+    return {
+      showCreatePartyButton: false
+    };
+  },
+  computed: {
+    ...mapState(["partyId"])
+  },
+  methods: {
+    ...mapActions(["createOrJoin"])
+  },
+  created() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const partyId = urlParams.get("party");
+
+    if (partyId !== null) {
+      this.createOrJoin(partyId);
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -4,16 +4,19 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "start": "concurrently \"node ./service/app.js\" \"vue-cli-service serve\""
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "party": "github:timetocode/party",
     "vue": "^2.6.10",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
+    "concurrently": "^4.1.1",
     "vue-template-compiler": "^2.6.10"
   }
 }
